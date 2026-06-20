@@ -507,8 +507,10 @@ const SKILL_GROUPS = [
 
 function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="skills" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Skills"
           title={<>Marketing, analytics and <span className="text-gradient-gold">technology</span>.</>}
