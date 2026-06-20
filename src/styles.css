@@ -162,3 +162,11 @@
   }
   .shine:hover::after { left: 150%; }
 }
+
+/* Custom cursor — hide native on desktop */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
