@@ -570,8 +570,9 @@ const SERVICES = [
 
 function Services() {
   return (
-    <section id="services" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="services" className="relative py-28 px-5 overflow-hidden">
+      <div className="aurora opacity-60" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Services"
           title={<>What I can <span className="text-gradient-gold">build for you</span>.</>}
