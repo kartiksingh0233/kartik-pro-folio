@@ -110,7 +110,7 @@ function Nav() {
           <div className="flex items-center gap-2">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-gold)] px-4 py-2 text-sm font-semibold text-primary-foreground shine ring-gold"
+              className="hidden sm:inline-flex items-center gap-2 rounded-xl btn-premium px-4 py-2 text-sm shine"
             >
               Hire Me
             </a>
@@ -156,8 +156,10 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="top" ref={ref} className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 noise">
+    <section id="top" ref={ref} className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 noise overflow-hidden">
+      <div className="aurora" />
       <div className="absolute inset-0 grid-bg pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
       <div className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
            style={{ background: "var(--gradient-radial-gold)" }} />
       <Particles />
@@ -202,7 +204,7 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-gold)] px-5 py-3 text-sm font-semibold text-primary-foreground shine ring-gold">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl btn-premium px-5 py-3 text-sm shine">
               Hire Me
             </a>
             <a href={`https://wa.me/${PHONE}?text=Hi%20Kaushlendra%2C%20I%27d%20like%20to%20book%20a%20consultation`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl glass-strong px-5 py-3 text-sm font-semibold hover:bg-white/10 transition-colors">
@@ -378,7 +380,8 @@ function About() {
     { title: "AI & Cybersecurity", desc: "AI automation, prompt engineering and ethical hacking — CISCO certified Ethical Hacker." },
   ];
   return (
-    <section id="about" className="relative py-28 px-5">
+    <section id="about" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none opacity-60" />
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="About"
@@ -505,8 +508,10 @@ const SKILL_GROUPS = [
 
 function Skills() {
   return (
-    <section id="skills" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="skills" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Skills"
           title={<>Marketing, analytics and <span className="text-gradient-gold">technology</span>.</>}
@@ -566,8 +571,9 @@ const SERVICES = [
 
 function Services() {
   return (
-    <section id="services" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="services" className="relative py-28 px-5 overflow-hidden">
+      <div className="aurora opacity-60" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Services"
           title={<>What I can <span className="text-gradient-gold">build for you</span>.</>}
@@ -669,8 +675,10 @@ const PROJECTS = [
 function Portfolio() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section id="portfolio" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="portfolio" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Selected Work"
           title={<>Case studies that <span className="text-gradient-gold">moved the needle</span>.</>}
@@ -919,11 +927,12 @@ function Testimonials() {
 function Contact() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="contact" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden glass-strong rounded-[2rem] p-8 sm:p-14">
+    <section id="contact" className="relative py-28 px-5 overflow-hidden">
+      <div className="aurora opacity-70" />
+      <div className="mx-auto max-w-7xl relative">
+        <div className="relative overflow-hidden glass-strong rounded-[2rem] p-8 sm:p-14 glow-cyan">
           <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-40"
-               style={{ background: "var(--gradient-gold)", filter: "blur(80px)" }} />
+               style={{ background: "var(--gradient-blue-gold)", filter: "blur(80px)" }} />
           <div className="relative grid lg:grid-cols-2 gap-12">
             <div>
               <SectionHeader
