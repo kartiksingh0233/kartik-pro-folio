@@ -110,7 +110,7 @@ function Nav() {
           <div className="flex items-center gap-2">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-gold)] px-4 py-2 text-sm font-semibold text-primary-foreground shine ring-gold"
+              className="hidden sm:inline-flex items-center gap-2 rounded-xl btn-premium px-4 py-2 text-sm shine"
             >
               Hire Me
             </a>
