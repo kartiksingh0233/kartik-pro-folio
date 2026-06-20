@@ -927,11 +927,12 @@ function Testimonials() {
 function Contact() {
   const [sent, setSent] = useState(false);
   return (
-    <section id="contact" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden glass-strong rounded-[2rem] p-8 sm:p-14">
+    <section id="contact" className="relative py-28 px-5 overflow-hidden">
+      <div className="aurora opacity-70" />
+      <div className="mx-auto max-w-7xl relative">
+        <div className="relative overflow-hidden glass-strong rounded-[2rem] p-8 sm:p-14 glow-cyan">
           <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-40"
-               style={{ background: "var(--gradient-gold)", filter: "blur(80px)" }} />
+               style={{ background: "var(--gradient-blue-gold)", filter: "blur(80px)" }} />
           <div className="relative grid lg:grid-cols-2 gap-12">
             <div>
               <SectionHeader
