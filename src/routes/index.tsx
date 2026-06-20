@@ -202,7 +202,7 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-gold)] px-5 py-3 text-sm font-semibold text-primary-foreground shine ring-gold">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl btn-premium px-5 py-3 text-sm shine">
               Hire Me
             </a>
             <a href={`https://wa.me/${PHONE}?text=Hi%20Kaushlendra%2C%20I%27d%20like%20to%20book%20a%20consultation`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl glass-strong px-5 py-3 text-sm font-semibold hover:bg-white/10 transition-colors">
