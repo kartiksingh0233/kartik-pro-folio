@@ -156,8 +156,10 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="top" ref={ref} className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 noise">
+    <section id="top" ref={ref} className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 noise overflow-hidden">
+      <div className="aurora" />
       <div className="absolute inset-0 grid-bg pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
       <div className="absolute inset-x-0 top-0 h-[600px] pointer-events-none"
            style={{ background: "var(--gradient-radial-gold)" }} />
       <Particles />
