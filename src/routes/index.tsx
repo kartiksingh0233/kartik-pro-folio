@@ -241,7 +241,7 @@ function HeroPortrait() {
       <div className="absolute -inset-6 rounded-[2rem] bg-[var(--gradient-gold)] opacity-30 blur-3xl" />
       <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden glass-strong p-1.5">
         <div className="relative h-full w-full rounded-[1.7rem] overflow-hidden">
-          <img src={kartikImg} alt="Kaushlendra Kartik" className="h-full w-full object-cover" />
+          <img src={kartikImg.url} alt="Kaushlendra Kartik" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between glass-strong rounded-2xl px-4 py-3">
             <div>
