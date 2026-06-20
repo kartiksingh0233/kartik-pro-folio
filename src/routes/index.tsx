@@ -380,7 +380,8 @@ function About() {
     { title: "AI & Cybersecurity", desc: "AI automation, prompt engineering and ethical hacking — CISCO certified Ethical Hacker." },
   ];
   return (
-    <section id="about" className="relative py-28 px-5">
+    <section id="about" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none opacity-60" />
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="About"
