@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform, animate, useMotionValue } from "motion/react";
-import kartikImg from "@/assets/kartik.jpg";
+import kartikImg from "@/assets/kartik-new.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
