@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform, animate, useMotionValue } from "motion/react";
 import kartikImg from "@/assets/kartik-new.png.asset.json";
+import { ResumeButton } from "@/components/ResumeButton";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,6 +54,7 @@ function Index() {
       <Contact />
       <Footer />
       <FloatingActions />
+      <CustomCursor />
     </main>
   );
 }
@@ -205,9 +208,7 @@ function Hero() {
             <a href={`https://wa.me/${PHONE}?text=Hi%20Kaushlendra%2C%20I%27d%20like%20to%20book%20a%20consultation`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl glass-strong px-5 py-3 text-sm font-semibold hover:bg-white/10 transition-colors">
               Book Consultation
             </a>
-            <a href="/Kaushlendra-Kartik-Resume.pdf" download className="inline-flex items-center gap-2 rounded-xl glass-strong px-5 py-3 text-sm font-semibold hover:bg-white/10 transition-colors">
-              Download Resume ↓
-            </a>
+            <ResumeButton label="Download Resume" />
             <a href="#portfolio" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
               View Portfolio →
             </a>
@@ -945,9 +946,7 @@ function Contact() {
                 <a href={`tel:+${PHONE}`} className="rounded-xl glass px-5 py-3 text-sm font-semibold hover:bg-white/10">
                   Call Now
                 </a>
-                <a href="/Kaushlendra-Kartik-Resume.pdf" download className="rounded-xl glass px-5 py-3 text-sm font-semibold hover:bg-white/10">
-                  Download Resume
-                </a>
+                <ResumeButton label="Download Resume" />
               </div>
             </div>
 
