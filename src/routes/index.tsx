@@ -674,8 +674,10 @@ const PROJECTS = [
 function Portfolio() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section id="portfolio" className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
+    <section id="portfolio" className="relative py-28 px-5 overflow-hidden">
+      <div className="absolute inset-0 data-grid pointer-events-none" />
+      <div className="absolute inset-0 data-stream" />
+      <div className="mx-auto max-w-7xl relative">
         <SectionHeader
           eyebrow="Selected Work"
           title={<>Case studies that <span className="text-gradient-gold">moved the needle</span>.</>}
