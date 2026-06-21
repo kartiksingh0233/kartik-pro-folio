@@ -80,9 +80,9 @@ export function WelcomePopup() {
               ))}
 
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1, rotate: [0, -10, 10, 0] }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 180 }}
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 180, damping: 12 }}
                 className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-[var(--gradient-gold)] text-3xl shadow-[var(--shadow-glow)]"
               >
                 👋
