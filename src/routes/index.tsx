@@ -854,7 +854,7 @@ function CaseStudyModal({
         </div>
         {project.link && (
           <a href={project.link} target="_blank" rel="noreferrer"
-             className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-gold)] px-5 py-3 text-sm font-semibold text-primary-foreground">
+             className="mt-8 inline-flex items-center gap-2 rounded-xl btn-premium px-5 py-3 text-sm shine">
             Visit project ↗
           </a>
         )}
@@ -1030,7 +1030,7 @@ function Contact() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer"
-                   className="rounded-xl bg-[var(--gradient-gold)] px-5 py-3 text-sm font-semibold text-primary-foreground shine">
+                   className="rounded-xl btn-premium px-5 py-3 text-sm shine">
                   WhatsApp Me
                 </a>
                 <a href={`tel:+${PHONE}`} className="rounded-xl glass px-5 py-3 text-sm font-semibold hover:bg-white/10">
@@ -1068,7 +1068,7 @@ function Contact() {
                   className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40" />
               </div>
               <button type="submit"
-                className="w-full rounded-xl bg-[var(--gradient-gold)] px-5 py-3.5 text-sm font-semibold text-primary-foreground shine">
+                className="w-full rounded-xl btn-premium px-5 py-3.5 text-sm shine">
                 {sent ? "Thanks — I'll be in touch." : "Send Message →"}
               </button>
             </form>
