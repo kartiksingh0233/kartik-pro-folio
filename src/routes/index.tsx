@@ -4,6 +4,8 @@ import { motion, useInView, useScroll, useTransform, animate, useMotionValue } f
 import kartikImg from "@/assets/kartik-new.png.asset.json";
 import { ResumeButton } from "@/components/ResumeButton";
 import { CustomCursor } from "@/components/CustomCursor";
+import { WelcomePopup } from "@/components/WelcomePopup";
+import { BusinessCardBanner } from "@/components/BusinessCardBanner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,6 +43,7 @@ function Index() {
   return (
     <main className="relative min-h-screen overflow-x-clip">
       <Nav />
+      <BusinessCardBanner />
       <Hero />
       <Marquee />
       <About />
@@ -55,6 +58,7 @@ function Index() {
       <Footer />
       <FloatingActions />
       <CustomCursor />
+      <WelcomePopup />
     </main>
   );
 }
@@ -236,29 +240,106 @@ function Hero() {
 function HeroPortrait() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      initial={{ opacity: 0, scale: 0.9, y: 30 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto w-full max-w-md"
     >
-      <div className="absolute -inset-6 rounded-[2rem] bg-[var(--gradient-gold)] opacity-30 blur-3xl" />
-      <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden glass-strong p-1.5">
-        <div className="relative h-full w-full rounded-[1.7rem] overflow-hidden">
-          <img src={kartikImg.url} alt="Kaushlendra Kartik" className="h-full w-full object-cover" />
+      {/* Animated rotating gradient halo */}
+      <motion.div
+        className="absolute -inset-10 rounded-full opacity-50 blur-3xl"
+        style={{
+          background:
+            "conic-gradient(from 0deg, rgba(255,215,0,0.6), rgba(0,229,255,0.5), rgba(255,215,0,0.6))",
+        }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* Orbiting sparkles */}
+      {Array.from({ length: 8 }).map((_, i) => {
+        const angle = (i / 8) * Math.PI * 2;
+        const r = 180;
+        return (
+          <motion.span
+            key={i}
+            className="absolute left-1/2 top-1/2 h-2 w-2 rounded-full bg-[var(--gold)]"
+            style={{
+              boxShadow: "0 0 14px rgba(255,215,0,0.9)",
+              x: Math.cos(angle) * r - 4,
+              y: Math.sin(angle) * r - 4,
+            }}
+            animate={{
+              scale: [0.6, 1.3, 0.6],
+              opacity: [0.4, 1, 0.4],
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              delay: i * 0.2,
+              ease: "easeInOut",
+            }}
+          />
+        );
+      })}
+
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.03, rotateY: 6, rotateX: -3 }}
+        className="relative aspect-[4/5] rounded-[2rem] overflow-hidden glass-strong p-1.5"
+        style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+      >
+        {/* Animated border beam */}
+        <motion.div
+          className="absolute inset-0 rounded-[2rem] pointer-events-none"
+          style={{
+            background:
+              "conic-gradient(from 0deg, transparent 0deg, rgba(255,215,0,0.9) 60deg, rgba(0,229,255,0.8) 120deg, transparent 180deg, transparent 360deg)",
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="relative h-full w-full rounded-[1.7rem] overflow-hidden bg-[#0a0f1f]">
+          <motion.img
+            src={kartikImg.url}
+            alt="Kaushlendra Kartik"
+            className="h-full w-full object-cover"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Warm sun glow overlay (less techy, more human) */}
+          <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_20%,rgba(255,215,0,0.18),transparent_70%)]" />
+          {/* Shimmer sweep */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%)",
+            }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 2.5 }}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between glass-strong rounded-2xl px-4 py-3">
             <div>
               <div className="text-[11px] uppercase tracking-widest text-muted-foreground">Currently</div>
-              <div className="text-sm font-semibold">Royal Academy · Digital + Analytics</div>
+              <div className="text-sm font-semibold text-foreground">Royal Academy · Digital + Analytics</div>
             </div>
-            <span className="text-gradient-gold font-display text-2xl">★</span>
+            <motion.span
+              animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="text-gradient-gold font-display text-2xl"
+            >
+              ★
+            </motion.span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating cards */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
+        animate={{ y: [0, -12, 0], rotate: [-2, 2, -2] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -left-6 top-12 glass-strong rounded-2xl px-4 py-3 hidden sm:block"
       >
@@ -266,12 +347,12 @@ function HeroPortrait() {
         <div className="font-display text-xl text-gradient-gold">+312%</div>
       </motion.div>
       <motion.div
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 12, 0], rotate: [2, -2, 2] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -right-4 bottom-24 glass-strong rounded-2xl px-4 py-3 hidden sm:block"
       >
         <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Active campaigns</div>
-        <div className="font-display text-xl">12 live</div>
+        <div className="font-display text-xl text-foreground">12 live</div>
       </motion.div>
     </motion.div>
   );
