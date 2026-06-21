@@ -6,6 +6,7 @@ import { ResumeButton } from "@/components/ResumeButton";
 import { CustomCursor } from "@/components/CustomCursor";
 import { WelcomePopup } from "@/components/WelcomePopup";
 import { BusinessCardBanner } from "@/components/BusinessCardBanner";
+import GlobalClickSound from "@/components/GlobalClickSound";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,6 +59,7 @@ function Index() {
       <Footer />
       <FloatingActions />
       <CustomCursor />
+      <GlobalClickSound />
       <WelcomePopup />
     </main>
   );
