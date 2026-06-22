@@ -7,6 +7,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { WelcomePopup } from "@/components/WelcomePopup";
 import { BusinessCardBanner } from "@/components/BusinessCardBanner";
 import GlobalClickSound from "@/components/GlobalClickSound";
+import KartikAI from "@/components/KartikAI";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,6 +62,7 @@ function Index() {
       <CustomCursor />
       <GlobalClickSound />
       <WelcomePopup />
+      <KartikAI />
     </main>
   );
 }
