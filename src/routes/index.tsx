@@ -1113,12 +1113,15 @@ function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes
 function Footer() {
   return (
     <footer className="relative py-12 px-5 border-t border-white/5">
-      <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div>© {new Date().getFullYear()} Kaushlendra Kartik. All rights reserved.</div>
-        <div className="flex items-center gap-5">
-          <a href={`mailto:${EMAIL}`} className="hover:text-foreground">Email</a>
-          <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer" className="hover:text-foreground">WhatsApp</a>
-          <a href="https://www.rkbindia.com" target="_blank" rel="noreferrer" className="hover:text-foreground">RKB India</a>
+      <div className="mx-auto max-w-7xl flex flex-col items-center gap-4">
+        <VisitorCounter />
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div>© {new Date().getFullYear()} Kaushlendra Kartik. All rights reserved.</div>
+          <div className="flex items-center gap-5">
+            <a href={`mailto:${EMAIL}`} className="hover:text-foreground">Email</a>
+            <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer" className="hover:text-foreground">WhatsApp</a>
+            <a href="https://www.rkbindia.com" target="_blank" rel="noreferrer" className="hover:text-foreground">RKB India</a>
+          </div>
         </div>
       </div>
     </footer>
