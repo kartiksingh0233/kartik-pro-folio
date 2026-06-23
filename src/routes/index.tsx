@@ -8,6 +8,7 @@ import { WelcomePopup } from "@/components/WelcomePopup";
 import { BusinessCardBanner } from "@/components/BusinessCardBanner";
 import GlobalClickSound from "@/components/GlobalClickSound";
 import KartikAI from "@/components/KartikAI";
+import VisitorCounter from "@/components/VisitorCounter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
