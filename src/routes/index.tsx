@@ -9,6 +9,7 @@ import { BusinessCardBanner } from "@/components/BusinessCardBanner";
 import GlobalClickSound from "@/components/GlobalClickSound";
 import KartikAI from "@/components/KartikAI";
 import VisitorCounter from "@/components/VisitorCounter";
+import PremiumTestimonials from "@/components/PremiumTestimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
