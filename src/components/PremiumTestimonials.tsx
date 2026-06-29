@@ -199,7 +199,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
         </div>
 
         {/* Quote */}
-        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-soft-white">
+        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-[#082554]">
           {t.quote}
         </p>
 
