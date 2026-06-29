@@ -9,6 +9,7 @@ import { BusinessCardBanner } from "@/components/BusinessCardBanner";
 import GlobalClickSound from "@/components/GlobalClickSound";
 import KartikAI from "@/components/KartikAI";
 import VisitorCounter from "@/components/VisitorCounter";
+import PremiumTestimonials from "@/components/PremiumTestimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,7 +57,7 @@ function Index() {
       <Portfolio />
       <Certifications />
       <Education />
-      <Testimonials />
+      <PremiumTestimonials />
       <Contact />
       <Footer />
       <FloatingActions />
@@ -958,56 +959,7 @@ function Education() {
   );
 }
 
-/* ---------------- TESTIMONIALS ---------------- */
-const TESTIMONIALS = [
-  {
-    quote: "Kaushlendra rebuilt our admission funnel from scratch. Inquiries jumped within the first month and the quality of leads improved dramatically.",
-    name: "School Director",
-    role: "Private K-12 Academy",
-  },
-  {
-    quote: "Beyond running ads, he gave us a dashboard that tells us exactly where every rupee goes. That alone changed how we run the business.",
-    name: "Founder",
-    role: "Education SMB",
-  },
-  {
-    quote: "Strategic, calm and incredibly hands-on. He is equally comfortable in a brand discussion, a Meta Ads dashboard and a Power BI report.",
-    name: "Principal",
-    role: "International School",
-  },
-];
 
-function Testimonials() {
-  return (
-    <section className="relative py-28 px-5">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          eyebrow="Testimonials"
-          title={<>What clients <span className="text-gradient-gold">say</span>.</>}
-        />
-        <div className="mt-14 grid md:grid-cols-3 gap-5">
-          {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass-strong rounded-3xl p-6 flex flex-col"
-            >
-              <div className="text-gradient-gold font-display text-5xl leading-none">"</div>
-              <p className="mt-2 text-sm sm:text-base leading-relaxed flex-1">{t.quote}</p>
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <div className="font-medium">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- CONTACT ---------------- */
 function Contact() {
