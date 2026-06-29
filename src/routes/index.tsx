@@ -57,7 +57,7 @@ function Index() {
       <Portfolio />
       <Certifications />
       <Education />
-      <Testimonials />
+      <PremiumTestimonials />
       <Contact />
       <Footer />
       <FloatingActions />
