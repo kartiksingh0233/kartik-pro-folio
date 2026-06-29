@@ -959,24 +959,6 @@ function Education() {
   );
 }
 
-/* ---------------- TESTIMONIALS ---------------- */
-const TESTIMONIALS = [
-  {
-    quote: "Kaushlendra rebuilt our admission funnel from scratch. Inquiries jumped within the first month and the quality of leads improved dramatically.",
-    name: "School Director",
-    role: "Private K-12 Academy",
-  },
-  {
-    quote: "Beyond running ads, he gave us a dashboard that tells us exactly where every rupee goes. That alone changed how we run the business.",
-    name: "Founder",
-    role: "Education SMB",
-  },
-  {
-    quote: "Strategic, calm and incredibly hands-on. He is equally comfortable in a brand discussion, a Meta Ads dashboard and a Power BI report.",
-    name: "Principal",
-    role: "International School",
-  },
-];
 
 
 /* ---------------- CONTACT ---------------- */
