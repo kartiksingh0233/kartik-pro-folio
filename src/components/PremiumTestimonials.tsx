@@ -199,7 +199,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
               style={{
                 background: "linear-gradient(135deg, rgba(34,197,94,0.18), rgba(59,130,246,0.18))",
                 border: "1px solid rgba(34,197,94,0.4)",
-                color: "#082554",
+                color: "#86efac",
               }}
             >
               <BadgeCheck className="h-3.5 w-3.5" />
