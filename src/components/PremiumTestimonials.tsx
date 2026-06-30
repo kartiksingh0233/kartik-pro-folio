@@ -199,7 +199,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
               style={{
                 background: "linear-gradient(135deg, rgba(34,197,94,0.18), rgba(59,130,246,0.18))",
                 border: "1px solid rgba(34,197,94,0.4)",
-                color: "#082554",
+                color: "#86efac",
               }}
             >
               <BadgeCheck className="h-3.5 w-3.5" />
@@ -209,7 +209,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
         </div>
 
         {/* Quote */}
-        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-[#082554]">
+        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-soft-white">
           {t.quote}
         </p>
 
@@ -238,10 +238,10 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
               </div>
             </div>
             <div className="min-w-0">
-              <div className="font-display text-lg sm:text-xl font-semibold text-[#082554] truncate">
+              <div className="font-display text-lg sm:text-xl font-semibold text-white truncate">
                 {t.name}
               </div>
-              <div className="text-xs sm:text-sm text-[#082554] truncate">
+              <div className="text-xs sm:text-sm text-sky-soft truncate">
                 {t.designation}
                 {t.organization ? ` · ${t.organization}` : ""}
               </div>
@@ -254,7 +254,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
             style={{
               background: "linear-gradient(135deg, rgba(255,215,0,0.15), rgba(59,130,246,0.18))",
               border: "1px solid rgba(255,215,0,0.4)",
-              color: "#082554",
+              color: "#ffe98a",
               boxShadow: "0 6px 20px -8px rgba(255,215,0,0.5)",
             }}
             aria-label={`Call ${t.name} at ${t.phone}`}
@@ -397,17 +397,17 @@ export default function PremiumTestimonials() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.25em] text-[#082554]">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[11px] uppercase tracking-[0.25em] text-white">
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)] animate-pulse" />
             Client Testimonials
           </div>
           <h2
             id="testimonials-heading"
-            className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#082554]"
+            className="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold"
           >
             Words from <span className="text-gradient-gold">trusted partners</span>.
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-[#082554]">
+          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground">
             Principals, HR leaders, and education advisers sharing their experience working with
             Kaushlendra.
           </p>
