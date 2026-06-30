@@ -273,8 +273,49 @@ export default function PremiumTestimonials() {
   const [paused, setPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStart = useRef<number | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const didMountRef = useRef(false);
 
   const total = TESTIMONIALS.length;
+
+  // Subtle premium transition chime
+  const playTransitionSound = useCallback(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const AC = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AC) return;
+      if (!audioCtxRef.current) audioCtxRef.current = new AC();
+      const c = audioCtxRef.current;
+      if (c.state === "suspended") c.resume().catch(() => {});
+      const now = c.currentTime;
+      const master = c.createGain();
+      master.gain.value = 0.22;
+      master.connect(c.destination);
+
+      const tones = [880, 1320]; // soft perfect-fifth shimmer
+      tones.forEach((f, i) => {
+        const osc = c.createOscillator();
+        const g = c.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(f, now);
+        g.gain.setValueAtTime(0.0001, now + i * 0.04);
+        g.gain.exponentialRampToValueAtTime(0.18, now + i * 0.04 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.04 + 0.45);
+        osc.connect(g).connect(master);
+        osc.start(now + i * 0.04);
+        osc.stop(now + i * 0.04 + 0.5);
+      });
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    playTransitionSound();
+  }, [index, playTransitionSound]);
+
 
   const go = useCallback(
     (dir: 1 | -1) => setIndex((i) => (i + dir + total) % total),
