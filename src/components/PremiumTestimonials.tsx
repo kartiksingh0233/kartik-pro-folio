@@ -52,9 +52,19 @@ const TESTIMONIALS: Testimonial[] = [
     quote:
       "Kaushlendra possesses an excellent combination of digital marketing expertise, analytical thinking, and technical knowledge. His ability to create impactful branding strategies, optimize online campaigns, and deliver measurable business growth is truly impressive. He is dependable, innovative, and always focused on achieving the best possible results for his clients. I strongly recommend him for digital marketing, branding, website development, and educational consulting projects.",
   },
+  {
+    name: "Mr. KL",
+    designation: "MD",
+    organization: "DriveFuture Classes",
+    phone: "+91 95598 96199",
+    initials: "KL",
+    accent: "from-emerald-400 to-teal-600",
+    quote:
+      "Working with Kaushlendra has been a remarkable experience for DriveFuture Classes. His strategic approach to digital marketing, branding, and lead generation helped us reach the right students at the right time. From campaign planning to creative execution, every deliverable reflected professionalism, clarity, and measurable results. He genuinely understands the education sector and consistently goes the extra mile. I highly recommend him for any institution looking to grow its digital presence.",
+  },
 ];
 
-const AUTOPLAY_MS = 15000;
+const AUTOPLAY_MS = 10000;
 
 function Particles() {
   const dots = useMemo(
