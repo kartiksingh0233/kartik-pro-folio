@@ -209,7 +209,7 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
         </div>
 
         {/* Quote */}
-        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-[#082554]">
+        <p className="relative mt-6 text-[15px] sm:text-base lg:text-lg leading-relaxed text-soft-white">
           {t.quote}
         </p>
 
@@ -238,10 +238,10 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
               </div>
             </div>
             <div className="min-w-0">
-              <div className="font-display text-lg sm:text-xl font-semibold text-[#082554] truncate">
+              <div className="font-display text-lg sm:text-xl font-semibold text-white truncate">
                 {t.name}
               </div>
-              <div className="text-xs sm:text-sm text-[#082554] truncate">
+              <div className="text-xs sm:text-sm text-sky-soft truncate">
                 {t.designation}
                 {t.organization ? ` · ${t.organization}` : ""}
               </div>
