@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const ROLES = [
+  "TGT - IT Educator",
   "Digital Marketer",
   "Business Analytics Specialist",
   "Growth Strategist",
@@ -330,7 +331,7 @@ function HeroPortrait() {
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between glass-strong rounded-2xl px-4 py-3">
             <div>
               <div className="text-[11px] uppercase tracking-widest text-muted-foreground">Currently</div>
-              <div className="text-sm font-semibold text-foreground">Royal Academy · Digital + Analytics</div>
+              <div className="text-sm font-semibold text-foreground">Royal Academy · TGT - IT + Digital + Analytics</div>
             </div>
             <motion.span
               animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
@@ -461,6 +462,7 @@ function SectionHeader({
 /* ---------------- ABOUT ---------------- */
 function About() {
   const pillars = [
+    { title: "TGT - IT Educator", desc: "Teaching IT / Computer Science across Royal Academy and SDPS International School, managing labs, student projects and technology-driven classrooms." },
     { title: "Digital Marketer", desc: "Performance marketing, SEO, social and lead generation across schools, startups and SMBs." },
     { title: "Business Analytics", desc: "Power BI dashboards, Google Analytics, KPI tracking and data-driven decision systems." },
     { title: "Web Developer", desc: "Modern websites, school portals, ID & report card systems and no-code platforms." },
@@ -472,10 +474,10 @@ function About() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="About"
-          title={<>A marketer who thinks like an <span className="text-gradient-gold">analyst</span>.</>}
-          subtitle="I'm Kaushlendra Kartik — a digital marketer and business analytics professional with 4+ years of hands-on experience scaling private schools and education businesses across India. I sit at the intersection of marketing, data and technology — running campaigns, building dashboards, shipping websites and integrating AI into day-to-day operations."
+          title={<>A marketer, educator & analyst <span className="text-gradient-gold">in one</span>.</>}
+          subtitle="I'm Kaushlendra Kartik — a TGT - IT educator, digital marketer and business analytics professional with 4+ years of hands-on experience scaling private schools and education businesses across India. I sit at the intersection of teaching, marketing, data and technology — running classrooms, campaigns, dashboards, websites and AI-driven operations."
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-5">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
@@ -502,15 +504,15 @@ function About() {
 const EXPERIENCE = [
   {
     org: "Royal Academy",
-    role: "Digital Marketer · Developer Team Incharge · Business Analytics",
+    role: "TGT - IT · Digital Marketer · Developer Team Incharge · Business Analytics",
     period: "Jan 2025 — Present",
-    desc: "Leading digital growth, web product team and analytics. Building dashboards for admissions, marketing performance and operations.",
+    desc: "Teaching IT / Computer Science as TGT faculty while leading digital growth, web product team and analytics. Building dashboards for admissions, marketing performance and operations. A truly valuable hands-on teaching experience combined with technology leadership.",
   },
   {
     org: "SDPS International School",
-    role: "Digital Marketing Manager",
+    role: "TGT - IT · Digital Marketing Manager",
     period: "Jul 2024 — Jan 2025",
-    desc: "Owned brand, paid media and admission funnel. Scaled social presence and inquiry pipeline across Meta and Google.",
+    desc: "Served as TGT - IT faculty while owning brand, paid media and the admission funnel. Delivered IT lessons, managed labs and student projects, and scaled social presence and inquiry pipeline across Meta and Google. A rich and rewarding teaching experience.",
   },
   {
     org: "Central Global Academy",
