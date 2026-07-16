@@ -330,7 +330,7 @@ function HeroPortrait() {
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between glass-strong rounded-2xl px-4 py-3">
             <div>
               <div className="text-[11px] uppercase tracking-widest text-muted-foreground">Currently</div>
-              <div className="text-sm font-semibold text-foreground">Royal Academy · Digital + Analytics</div>
+              <div className="text-sm font-semibold text-foreground">Royal Academy · TGT - IT + Digital + Analytics</div>
             </div>
             <motion.span
               animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
