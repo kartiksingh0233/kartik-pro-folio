@@ -462,6 +462,7 @@ function SectionHeader({
 /* ---------------- ABOUT ---------------- */
 function About() {
   const pillars = [
+    { title: "TGT - IT Educator", desc: "Teaching IT / Computer Science across Royal Academy and SDPS International School, managing labs, student projects and technology-driven classrooms." },
     { title: "Digital Marketer", desc: "Performance marketing, SEO, social and lead generation across schools, startups and SMBs." },
     { title: "Business Analytics", desc: "Power BI dashboards, Google Analytics, KPI tracking and data-driven decision systems." },
     { title: "Web Developer", desc: "Modern websites, school portals, ID & report card systems and no-code platforms." },
@@ -473,8 +474,8 @@ function About() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="About"
-          title={<>A marketer who thinks like an <span className="text-gradient-gold">analyst</span>.</>}
-          subtitle="I'm Kaushlendra Kartik — a digital marketer and business analytics professional with 4+ years of hands-on experience scaling private schools and education businesses across India. I sit at the intersection of marketing, data and technology — running campaigns, building dashboards, shipping websites and integrating AI into day-to-day operations."
+          title={<>A marketer, educator & analyst <span className="text-gradient-gold">in one</span>.</>}
+          subtitle="I'm Kaushlendra Kartik — a TGT - IT educator, digital marketer and business analytics professional with 4+ years of hands-on experience scaling private schools and education businesses across India. I sit at the intersection of teaching, marketing, data and technology — running classrooms, campaigns, dashboards, websites and AI-driven operations."
         />
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {pillars.map((p, i) => (
