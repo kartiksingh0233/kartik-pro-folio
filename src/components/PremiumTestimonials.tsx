@@ -67,18 +67,20 @@ const TESTIMONIALS: Testimonial[] = [
 const AUTOPLAY_MS = 10000;
 
 function Particles() {
-  const dots = useMemo(
-    () =>
-      Array.from({ length: 28 }).map((_, i) => ({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 3 + 1,
-        dur: Math.random() * 10 + 12,
-        delay: Math.random() * 6,
-      })),
-    [],
-  );
+  const dots = useMemo(() => {
+    const seeded = (n: number) => {
+      const s = Math.sin(n * 12.9898) * 43758.5453;
+      return s - Math.floor(s);
+    };
+    return Array.from({ length: 28 }).map((_, i) => ({
+      id: i,
+      x: seeded(i) * 100,
+      y: seeded(i + 100) * 100,
+      size: seeded(i + 200) * 3 + 1,
+      dur: seeded(i + 300) * 10 + 12,
+      delay: seeded(i + 400) * 6,
+    }));
+  }, []);
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {dots.map((d) => (
