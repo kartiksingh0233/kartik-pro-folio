@@ -502,15 +502,15 @@ function About() {
 const EXPERIENCE = [
   {
     org: "Royal Academy",
-    role: "Digital Marketer · Developer Team Incharge · Business Analytics",
+    role: "TGT - IT · Digital Marketer · Developer Team Incharge · Business Analytics",
     period: "Jan 2025 — Present",
-    desc: "Leading digital growth, web product team and analytics. Building dashboards for admissions, marketing performance and operations.",
+    desc: "Teaching IT / Computer Science as TGT faculty while leading digital growth, web product team and analytics. Building dashboards for admissions, marketing performance and operations. A truly valuable hands-on teaching experience combined with technology leadership.",
   },
   {
     org: "SDPS International School",
-    role: "Digital Marketing Manager",
+    role: "TGT - IT · Digital Marketing Manager",
     period: "Jul 2024 — Jan 2025",
-    desc: "Owned brand, paid media and admission funnel. Scaled social presence and inquiry pipeline across Meta and Google.",
+    desc: "Served as TGT - IT faculty while owning brand, paid media and the admission funnel. Delivered IT lessons, managed labs and student projects, and scaled social presence and inquiry pipeline across Meta and Google. A rich and rewarding teaching experience.",
   },
   {
     org: "Central Global Academy",
