@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const ROLES = [
+  "TGT - IT Educator",
   "Digital Marketer",
   "Business Analytics Specialist",
   "Growth Strategist",
