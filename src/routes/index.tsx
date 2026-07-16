@@ -477,7 +477,7 @@ function About() {
           title={<>A marketer, educator & analyst <span className="text-gradient-gold">in one</span>.</>}
           subtitle="I'm Kaushlendra Kartik — a TGT - IT educator, digital marketer and business analytics professional with 4+ years of hands-on experience scaling private schools and education businesses across India. I sit at the intersection of teaching, marketing, data and technology — running classrooms, campaigns, dashboards, websites and AI-driven operations."
         />
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-5">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
