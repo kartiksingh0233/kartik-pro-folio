@@ -154,17 +154,33 @@ function TestimonialCard({ t, parallax }: { t: Testimonial; parallax: { rx: any;
       `}</style>
 
       <div
-        className="relative glass-strong rounded-[2rem] p-7 sm:p-10 overflow-hidden"
-        style={{ animation: "floatY 7s ease-in-out infinite" }}
+        className="relative rounded-[2rem] p-7 sm:p-10 overflow-hidden"
+        style={{
+          animation: "floatY 7s ease-in-out infinite",
+          background:
+            "linear-gradient(160deg, rgba(8,20,50,0.96), rgba(4,10,28,0.98))",
+          border: "1px solid rgba(255,215,0,0.18)",
+          boxShadow:
+            "0 30px 80px -30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06)",
+        }}
       >
-        {/* Golden glow blob */}
+        {/* Golden glow blob - subtle, behind content */}
         <div
           aria-hidden
-          className="absolute -top-24 -right-24 h-72 w-72 rounded-full opacity-40"
+          className="absolute -top-32 -right-32 h-72 w-72 rounded-full opacity-25 pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,215,0,0.55), rgba(59,130,246,0.25), transparent 70%)",
-            filter: "blur(60px)",
+              "radial-gradient(circle, rgba(255,215,0,0.45), transparent 70%)",
+            filter: "blur(70px)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute -bottom-32 -left-32 h-72 w-72 rounded-full opacity-20 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(59,130,246,0.5), transparent 70%)",
+            filter: "blur(70px)",
           }}
         />
 
