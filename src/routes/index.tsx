@@ -193,6 +193,9 @@ function Hero() {
           <h1 className="mt-6 text-[40px] leading-[1.05] sm:text-6xl lg:text-7xl font-semibold tracking-tight">
             <span className="block">Kaushlendra</span>
             <span className="block text-gradient-gold">Kartik.</span>
+            <span className="mt-4 block text-lg sm:text-xl lg:text-2xl font-medium tracking-normal text-[#A8D8FF]">
+              Digital Marketer &amp; Business Analytics Specialist
+            </span>
           </h1>
 
           <div className="mt-5 h-9 sm:h-10 overflow-hidden">
@@ -966,6 +969,32 @@ function Education() {
 /* ---------------- CONTACT ---------------- */
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    setError(null);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      await submitLead({
+        name: String(data.get("name") ?? ""),
+        email: String(data.get("email") ?? ""),
+        company: String(data.get("company") ?? ""),
+        projectType: String(data.get("projectType") ?? ""),
+        message: String(data.get("message") ?? ""),
+      });
+      setSent(true);
+      form.reset();
+    } catch {
+      setError("Message send nahi ho paya. Please WhatsApp ya email se contact karein.");
+    } finally {
+      setSending(false);
+    }
+  }
   return (
     <section id="contact" className="relative py-28 px-5 overflow-hidden">
       <div className="aurora opacity-70" />
