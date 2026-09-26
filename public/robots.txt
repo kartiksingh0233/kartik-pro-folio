@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://kartik-pro-folio.lovable.app/sitemap.xml

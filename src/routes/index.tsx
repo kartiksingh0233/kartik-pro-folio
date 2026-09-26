@@ -10,6 +10,7 @@ import GlobalClickSound from "@/components/GlobalClickSound";
 import KartikAI from "@/components/KartikAI";
 import VisitorCounter from "@/components/VisitorCounter";
 import PremiumTestimonials from "@/components/PremiumTestimonials";
+import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,8 +27,62 @@ export const Route = createFileRoute("/")({
         content:
           "Helping schools, startups and businesses generate leads, grow revenue and make smarter decisions through marketing & analytics.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kartik-pro-folio.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://kartik-pro-folio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Kaushlendra Kartik",
+          jobTitle: "Digital Marketer & Business Analytics Specialist",
+          url: "https://kartik-pro-folio.lovable.app/",
+          review: [
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Dr. Sindhu Mol", jobTitle: "Principal, Royal Academy" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra has been instrumental in strengthening our school's digital presence. From social media campaigns and admission marketing to website improvements and branding, his work has consistently delivered outstanding results.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. Rakesh Sinha", jobTitle: "Principal, SDPS International School" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra is a highly skilled digital marketing professional with excellent technical knowledge. He contributed effectively in digital promotion, website management, ERP support, and online branding.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mrs. Akriti Jain", jobTitle: "HR, SDPS International School" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra consistently demonstrated professionalism, responsibility, and a positive work ethic. His communication skills, commitment, and technical expertise make him an excellent freelancer and digital marketing consultant.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. Mohit Samadhiya", jobTitle: "Shiksha Adviser" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra possesses an excellent combination of digital marketing expertise, analytical thinking, and technical knowledge. He is dependable, innovative, and always focused on achieving the best possible results for his clients.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. KL", jobTitle: "MD, DriveFuture Classes" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra delivered professional digital marketing and growth support for our institute with dedication and measurable results.",
+            },
+          ],
+        }),
+      },
     ],
   }),
+  staticData: { sitemap: true },
   component: Index,
 });
 
@@ -193,6 +248,9 @@ function Hero() {
           <h1 className="mt-6 text-[40px] leading-[1.05] sm:text-6xl lg:text-7xl font-semibold tracking-tight">
             <span className="block">Kaushlendra</span>
             <span className="block text-gradient-gold">Kartik.</span>
+            <span className="mt-4 block text-lg sm:text-xl lg:text-2xl font-medium tracking-normal text-[#A8D8FF]">
+              Digital Marketer &amp; Business Analytics Specialist
+            </span>
           </h1>
 
           <div className="mt-5 h-9 sm:h-10 overflow-hidden">
@@ -966,6 +1024,32 @@ function Education() {
 /* ---------------- CONTACT ---------------- */
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    setError(null);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      await submitLead({
+        name: String(data.get("name") ?? ""),
+        email: String(data.get("email") ?? ""),
+        company: String(data.get("company") ?? ""),
+        projectType: String(data.get("projectType") ?? ""),
+        message: String(data.get("message") ?? ""),
+      });
+      setSent(true);
+      form.reset();
+    } catch {
+      setError("Message send nahi ho paya. Please WhatsApp ya email se contact karein.");
+    } finally {
+      setSending(false);
+    }
+  }
   return (
     <section id="contact" className="relative py-28 px-5 overflow-hidden">
       <div className="aurora opacity-70" />
@@ -1000,17 +1084,17 @@ function Contact() {
             </div>
 
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="glass rounded-2xl p-6 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Name" name="name" placeholder="Your full name" required />
-                <Field label="Email" name="email" type="email" placeholder="you@email.com" required />
+                <Field label="Name" id="contact-name" name="name" placeholder="Your full name" required />
+                <Field label="Email" id="contact-email" name="email" type="email" placeholder="you@email.com" required />
               </div>
-              <Field label="Company / Organization" name="company" placeholder="Optional" />
+              <Field label="Company / Organization" id="contact-company" name="company" placeholder="Optional" />
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Project Type</label>
-                <select className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40">
+                <label htmlFor="contact-project-type" className="text-xs uppercase tracking-widest text-muted-foreground">Project Type</label>
+                <select id="contact-project-type" name="projectType" className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40">
                   <option className="bg-background">Digital Marketing</option>
                   <option className="bg-background">Lead Generation</option>
                   <option className="bg-background">Business Analytics</option>
@@ -1021,14 +1105,15 @@ function Contact() {
                 </select>
               </div>
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
-                <textarea required rows={4}
+                <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                <textarea id="contact-message" name="message" required rows={4}
                   placeholder="Tell me about your project, goals and timeline..."
                   className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40" />
               </div>
-              <button type="submit"
-                className="w-full rounded-xl btn-premium px-5 py-3.5 text-sm shine">
-                {sent ? "Thanks — I'll be in touch." : "Send Message →"}
+              {error && <p className="text-sm text-red-400">{error}</p>}
+              <button type="submit" disabled={sending}
+                className="w-full rounded-xl btn-premium px-5 py-3.5 text-sm shine disabled:opacity-60">
+                {sending ? "Sending..." : sent ? "Thanks — I'll be in touch." : "Send Message →"}
               </button>
             </form>
           </div>
@@ -1051,11 +1136,12 @@ function ContactRow({ label, value, href }: { label: string; value: string; href
   return href ? <a href={href} target="_blank" rel="noreferrer">{inner}</a> : inner;
 }
 
-function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+function Field({ label, id, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={id} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
       <input
+        id={id}
         {...rest}
         className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40"
       />
