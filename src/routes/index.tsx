@@ -1029,17 +1029,17 @@ function Contact() {
             </div>
 
             <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="glass rounded-2xl p-6 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Name" name="name" placeholder="Your full name" required />
-                <Field label="Email" name="email" type="email" placeholder="you@email.com" required />
+                <Field label="Name" id="contact-name" name="name" placeholder="Your full name" required />
+                <Field label="Email" id="contact-email" name="email" type="email" placeholder="you@email.com" required />
               </div>
-              <Field label="Company / Organization" name="company" placeholder="Optional" />
+              <Field label="Company / Organization" id="contact-company" name="company" placeholder="Optional" />
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Project Type</label>
-                <select className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40">
+                <label htmlFor="contact-project-type" className="text-xs uppercase tracking-widest text-muted-foreground">Project Type</label>
+                <select id="contact-project-type" name="projectType" className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40">
                   <option className="bg-background">Digital Marketing</option>
                   <option className="bg-background">Lead Generation</option>
                   <option className="bg-background">Business Analytics</option>
@@ -1050,14 +1050,15 @@ function Contact() {
                 </select>
               </div>
               <div>
-                <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
-                <textarea required rows={4}
+                <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+                <textarea id="contact-message" name="message" required rows={4}
                   placeholder="Tell me about your project, goals and timeline..."
                   className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40" />
               </div>
-              <button type="submit"
-                className="w-full rounded-xl btn-premium px-5 py-3.5 text-sm shine">
-                {sent ? "Thanks — I'll be in touch." : "Send Message →"}
+              {error && <p className="text-sm text-red-400">{error}</p>}
+              <button type="submit" disabled={sending}
+                className="w-full rounded-xl btn-premium px-5 py-3.5 text-sm shine disabled:opacity-60">
+                {sending ? "Sending..." : sent ? "Thanks — I'll be in touch." : "Send Message →"}
               </button>
             </form>
           </div>
@@ -1080,11 +1081,12 @@ function ContactRow({ label, value, href }: { label: string; value: string; href
   return href ? <a href={href} target="_blank" rel="noreferrer">{inner}</a> : inner;
 }
 
-function Field({ label, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+function Field({ label, id, ...rest }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <label htmlFor={id} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
       <input
+        id={id}
         {...rest}
         className="mt-2 w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/40"
       />
