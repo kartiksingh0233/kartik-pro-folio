@@ -10,6 +10,7 @@ import GlobalClickSound from "@/components/GlobalClickSound";
 import KartikAI from "@/components/KartikAI";
 import VisitorCounter from "@/components/VisitorCounter";
 import PremiumTestimonials from "@/components/PremiumTestimonials";
+import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,8 +27,62 @@ export const Route = createFileRoute("/")({
         content:
           "Helping schools, startups and businesses generate leads, grow revenue and make smarter decisions through marketing & analytics.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://kartik-pro-folio.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://kartik-pro-folio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Kaushlendra Kartik",
+          jobTitle: "Digital Marketer & Business Analytics Specialist",
+          url: "https://kartik-pro-folio.lovable.app/",
+          review: [
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Dr. Sindhu Mol", jobTitle: "Principal, Royal Academy" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra has been instrumental in strengthening our school's digital presence. From social media campaigns and admission marketing to website improvements and branding, his work has consistently delivered outstanding results.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. Rakesh Sinha", jobTitle: "Principal, SDPS International School" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra is a highly skilled digital marketing professional with excellent technical knowledge. He contributed effectively in digital promotion, website management, ERP support, and online branding.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mrs. Akriti Jain", jobTitle: "HR, SDPS International School" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra consistently demonstrated professionalism, responsibility, and a positive work ethic. His communication skills, commitment, and technical expertise make him an excellent freelancer and digital marketing consultant.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. Mohit Samadhiya", jobTitle: "Shiksha Adviser" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra possesses an excellent combination of digital marketing expertise, analytical thinking, and technical knowledge. He is dependable, innovative, and always focused on achieving the best possible results for his clients.",
+            },
+            {
+              "@type": "Review",
+              author: { "@type": "Person", name: "Mr. KL", jobTitle: "MD, DriveFuture Classes" },
+              reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+              reviewBody:
+                "Kaushlendra delivered professional digital marketing and growth support for our institute with dedication and measurable results.",
+            },
+          ],
+        }),
+      },
     ],
   }),
+  staticData: { sitemap: true },
   component: Index,
 });
 
